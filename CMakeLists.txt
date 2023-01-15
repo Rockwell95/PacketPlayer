@@ -14,6 +14,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
+include(FindPCAP.cmake)
+
+
 set(TS_FILES PacketPlayer_en_CA.ts)
 
 set(PROJECT_SOURCES
@@ -21,6 +24,7 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        resources.qrc
         ${TS_FILES}
 )
 
@@ -51,7 +55,7 @@ else()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
-target_link_libraries(PacketPlayer PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(PacketPlayer PRIVATE Qt${QT_VERSION_MAJOR}::Widgets ${PCAP_LIBRARY})
 
 set_target_properties(PacketPlayer PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
@@ -68,3 +72,6 @@ install(TARGETS PacketPlayer
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(PacketPlayer)
 endif()
+
+add_executable(PacketCLI pcap_player.cpp)
+target_link_libraries(PacketCLI ${PCAP_LIBRARY})

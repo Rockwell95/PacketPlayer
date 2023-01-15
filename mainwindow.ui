@@ -6,15 +6,44 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>382</width>
-    <height>210</height>
+    <width>397</width>
+    <height>327</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Packet Player </string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_5">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QGroupBox" name="groupBox_4">
+        <property name="title">
+         <string>PCAP File</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLineEdit" name="filePath"/>
+         </item>
+         <item>
+          <widget class="QToolButton" name="fileDialogButton">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_7">
       <item>
@@ -31,9 +60,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit">
+          <widget class="QLineEdit" name="ipAddress">
            <property name="inputMask">
-            <string>000.000.000.000</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -45,9 +74,15 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit_2">
+          <widget class="QLineEdit" name="portNumber">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="inputMask">
-            <string>00000</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -89,7 +124,8 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset theme="media-playback-start"/>
+            <iconset>
+             <normaloff>.</normaloff>.</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -105,7 +141,8 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset theme="media-playback-stop"/>
+            <iconset theme="media-playback-stop">
+             <normaloff>.</normaloff>.</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -139,6 +176,9 @@
         <layout class="QHBoxLayout" name="horizontalLayout_10">
          <item>
           <widget class="QLabel" name="label_3">
+           <property name="styleSheet">
+            <string notr="true">color: #A31700</string>
+           </property>
            <property name="text">
             <string>STOPPED</string>
            </property>
@@ -156,8 +196,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>382</width>
-     <height>22</height>
+     <width>397</width>
+     <height>37</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
